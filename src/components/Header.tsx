@@ -10,6 +10,7 @@ const links = [
   { label: "Benefícios", href: "#beneficios" },
   { label: "Clientes", href: "#clientes" },
   { label: "FAQ", href: "#faq" },
+  { label: "Portfólio", href: "/portfolio", isRoute: true },
   { label: "Vagas", href: "/vagas", isRoute: true },
 ];
 
