@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Header from "@/components/Header";
-import FooterSection from "@/components/FooterSection";
 import { ArrowRight, TrendingUp, Users, Target, BarChart3, CheckCircle2, Quote } from "lucide-react";
 
 const stats = [
@@ -74,7 +72,7 @@ const fadeUp = {
 const Portfolio = () => {
   return (
     <main className="bg-deep text-primary-foreground">
-      <Header />
+      
 
       {/* SLIDE 1 — Cover */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -308,7 +306,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <FooterSection />
     </main>
   );
 };
