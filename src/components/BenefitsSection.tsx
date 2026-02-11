@@ -21,7 +21,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="bg-background py-24 px-6 md:px-16">
+    <section id="beneficios" className="bg-neutral-light py-24 px-6 md:px-16">
       <div className="container mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ const BenefitsSection = () => {
           <span className="inline-block bg-electric/10 text-electric font-body text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
             Benefícios
           </span>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-deep">
             O que muda na prática
           </h2>
         </motion.div>
@@ -46,13 +46,13 @@ const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="p-8 rounded-2xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/5 transition-all bg-card"
+              className="p-8 rounded-2xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all bg-background"
             >
               <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mb-6">
                 <item.icon className="w-6 h-6 text-electric" />
               </div>
-              <h3 className="font-headline text-xl font-bold text-foreground mb-3">{item.title}</h3>
-              <p className="font-body text-muted-foreground leading-relaxed">{item.desc}</p>
+              <h3 className="font-headline text-xl font-bold text-deep mb-3">{item.title}</h3>
+              <p className="font-body text-neutral-mid leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>

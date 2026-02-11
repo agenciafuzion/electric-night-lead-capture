@@ -10,7 +10,7 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="bg-background py-24 px-6 md:px-16">
+    <section id="problema" className="bg-depth py-24 px-6 md:px-16">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,11 +22,11 @@ const ProblemSection = () => {
           <span className="inline-block bg-electric/10 text-electric font-body text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
             O Problema
           </span>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
             Quando falta processo e rotina de gestão,{" "}
             <span className="text-electric">tudo vira urgência.</span>
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-lg text-neutral-mid max-w-2xl mx-auto">
             "Trabalhar sem processo cobra um preço alto": retrabalho, stress e decisões no improviso.
           </p>
         </motion.div>
@@ -39,12 +39,12 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex items-start gap-4 p-6 rounded-xl border border-border bg-card hover:border-electric/30 transition-colors"
+              className="flex items-start gap-4 p-6 rounded-xl glass hover:border-electric/30 transition-colors"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center">
                 <item.icon className="w-5 h-5 text-electric" />
               </div>
-              <p className="font-body text-foreground text-base leading-relaxed">{item.text}</p>
+              <p className="font-body text-primary-foreground text-base leading-relaxed">{item.text}</p>
             </motion.div>
           ))}
         </div>

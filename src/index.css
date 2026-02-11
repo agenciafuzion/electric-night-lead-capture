@@ -126,3 +126,17 @@
   backdrop-filter: blur(20px);
   border: 1px solid hsl(214 18% 87% / 0.5);
 }
+
+/* Infinite scroll carousel */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 25s linear infinite;
+}
