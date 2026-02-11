@@ -18,7 +18,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="bg-deep py-24 px-6 md:px-16">
+    <section id="faq" className="bg-deep py-24 px-6 md:px-16">
       <div className="container mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -9,7 +9,7 @@ const items = [
 
 const CTASection = () => {
   return (
-    <section id="diagnostico" className="bg-background py-24 px-6 md:px-16">
+    <section id="diagnostico" className="bg-neutral-light py-24 px-6 md:px-16">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

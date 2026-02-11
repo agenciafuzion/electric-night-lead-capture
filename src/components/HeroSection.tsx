@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import logoLoop from "@/assets/logo-loop.png";
 import heroImg from "@/assets/hero-consultant.jpg";
 
 const HeroSection = () => {
@@ -8,10 +7,7 @@ const HeroSection = () => {
       {/* Glow orb */}
       <div className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] animate-glow-pulse pointer-events-none" />
       
-      {/* Nav */}
-      <nav className="absolute top-0 left-0 right-0 z-20 px-6 py-6 md:px-16">
-        <img src={logoLoop} alt="Loop Consultoria Empresarial" className="h-10 md:h-12" />
-      </nav>
+      {/* Spacer for fixed header */}
 
       <div className="container relative z-10 mx-auto px-6 md:px-16 pt-28 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

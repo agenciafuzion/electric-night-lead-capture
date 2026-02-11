@@ -21,7 +21,7 @@ const solutions = [
 
 const SolutionSection = () => {
   return (
-    <section className="bg-deep py-24 px-6 md:px-16 relative overflow-hidden">
+    <section id="solucao" className="bg-deep py-24 px-6 md:px-16 relative overflow-hidden">
       <div className="glow-orb absolute top-0 right-0 w-[600px] h-[600px] opacity-30 pointer-events-none" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
