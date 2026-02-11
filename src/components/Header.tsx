@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoLoop from "@/assets/logo-loop.png";
 import { Menu, X } from "lucide-react";
 
@@ -17,6 +17,18 @@ const links = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAnchorClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handle = () => setScrolled(window.scrollY > 40);
@@ -52,6 +64,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.href)}
                 className="font-body text-sm font-medium text-neutral-mid hover:text-primary-foreground transition-colors"
               >
                 {link.label}
@@ -99,7 +112,7 @@ const Header = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => { handleAnchorClick(e, link.href); setMobileOpen(false); }}
                     className="font-body text-sm font-medium text-neutral-mid hover:text-primary-foreground py-3 border-b border-depth/50 transition-colors"
                   >
                     {link.label}
