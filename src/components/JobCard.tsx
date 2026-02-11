@@ -23,12 +23,12 @@ const JobCard = ({ job, index }: { job: Job; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group relative rounded-2xl border border-depth/80 bg-deep hover:border-electric/40 transition-all duration-300 hover:shadow-xl hover:shadow-electric/5 overflow-hidden"
+      className="group relative rounded-2xl border border-depth/80 bg-deep hover:border-electric/40 transition-all duration-300 hover:shadow-xl hover:shadow-electric/5 overflow-hidden flex flex-col"
     >
       {/* Glow accent on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-electric/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-      <div className="relative p-6 md:p-8">
+      <div className="relative p-6 md:p-8 flex flex-col flex-1">
         {/* Top row */}
         <div className="flex items-start justify-between gap-4 mb-5">
           <div className="flex-1">
@@ -50,7 +50,7 @@ const JobCard = ({ job, index }: { job: Job; index: number }) => {
         </div>
 
         {/* Description */}
-        <p className="font-body text-neutral-mid text-sm leading-relaxed mb-5 line-clamp-2">
+        <p className="font-body text-neutral-mid text-sm leading-relaxed mb-5 line-clamp-2 flex-grow">
           {job.description}
         </p>
 
