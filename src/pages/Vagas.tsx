@@ -97,29 +97,6 @@ const Vagas = () => {
 
   return (
     <div className="min-h-screen bg-deep">
-      {/* Header */}
-      <header className="bg-deep/95 backdrop-blur-md border-b border-depth sticky top-0 z-50">
-        <div className="container mx-auto px-6 md:px-16 flex items-center justify-between h-16 md:h-20">
-          <Link to="/">
-            <img src={logoLoop} alt="Loop Consultoria" className="h-8 md:h-10" />
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link
-              to="/"
-              className="font-body text-sm font-medium text-neutral-mid hover:text-primary-foreground transition-colors"
-            >
-              Home
-            </Link>
-            <span className="font-body text-sm font-semibold text-primary-foreground">Vagas</span>
-            <a
-              href="/#diagnostico"
-              className="inline-flex items-center px-5 py-2.5 rounded-lg bg-electric text-primary-foreground font-body text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              Agendar Diagnóstico
-            </a>
-          </nav>
-        </div>
-      </header>
 
       {/* Hero */}
       <section className="relative py-20 md:py-28 px-6 md:px-16 overflow-hidden">
