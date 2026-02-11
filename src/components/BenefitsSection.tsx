@@ -52,7 +52,7 @@ const BenefitsSection = () => {
                 <item.icon className="w-6 h-6 text-electric" />
               </div>
               <h3 className="font-headline text-xl font-bold text-deep mb-3">{item.title}</h3>
-              <p className="font-body text-neutral-mid leading-relaxed">{item.desc}</p>
+              <p className="font-body text-depth leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
