@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logoLoop from "@/assets/logo-loop.png";
 import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 
@@ -16,7 +17,7 @@ const FooterSection = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <img src={logoLoop} alt="Loop Consultoria" className="h-10 mb-5" />
+            <Link to="/"><img src={logoLoop} alt="Loop Consultoria" className="h-10 mb-5" /></Link>
             <p className="font-body text-neutral-mid text-sm leading-relaxed max-w-xs">
               Consultoria, diagnóstico e treinamentos para empresas que querem processos claros e líderes que assumem.
             </p>
