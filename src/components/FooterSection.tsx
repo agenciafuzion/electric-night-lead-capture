@@ -94,12 +94,12 @@ const FooterSection = () => {
             © {new Date().getFullYear()} Loop Consultoria e Soluções Empresariais. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="font-body text-xs text-neutral-mid hover:text-primary-foreground transition-colors">
+            <Link to="/politica-de-privacidade" className="font-body text-xs text-neutral-mid hover:text-primary-foreground transition-colors">
               Política de Privacidade
-            </a>
-            <a href="#" className="font-body text-xs text-neutral-mid hover:text-primary-foreground transition-colors">
+            </Link>
+            <Link to="/termos-de-uso" className="font-body text-xs text-neutral-mid hover:text-primary-foreground transition-colors">
               Termos de Uso
-            </a>
+            </Link>
           </div>
         </div>
       </div>
