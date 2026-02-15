@@ -1,0 +1,28 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    # Roda todos os dias às 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping_database:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Tabela Jobs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Acordando o Supabase..."
+          
+          # Acessa a tabela 'jobs' que vi no teu print
+          # Pede apenas o ID da primeira linha para ser ultra-rápido
+          curl -f -X GET "$SUPABASE_URL/rest/v1/jobs?select=id" \
+          -H "apikey: $SUPABASE_KEY" \
+          -H "Authorization: Bearer $SUPABASE_KEY" \
+          -H "Range: 0-1"
+          
+          echo "Sinal enviado com sucesso!"
