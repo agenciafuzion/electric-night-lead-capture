@@ -55,7 +55,7 @@ const DifferentialsSection = () => {
               Nosso compromisso é apoiar empresas na construção de ambientes saudáveis e resultados consistentes, valorizando pessoas como o maior ativo organizacional.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {differentials.map((item, i) => (
                 <motion.div
                   key={i}

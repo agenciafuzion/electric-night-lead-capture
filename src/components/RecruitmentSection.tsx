@@ -111,7 +111,7 @@ const RecruitmentSection = () => {
         </div>
 
         {/* Mobile/Tablet: 2-column grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:hidden">
           {steps.map((step, i) => (
             <motion.div
               key={i}
