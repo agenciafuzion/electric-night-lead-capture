@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
-import SolutionSection from "@/components/SolutionSection";
-import BenefitsSection from "@/components/BenefitsSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import DifferentialsSection from "@/components/DifferentialsSection";
+import RecruitmentSection from "@/components/RecruitmentSection";
+import GallerySection from "@/components/GallerySection";
 import PartnersSection from "@/components/PartnersSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 
@@ -20,14 +21,16 @@ const Index = () => {
       }, 100);
     }
   }, [location]);
+
   return (
     <main>
       <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
-      <BenefitsSection />
+      <AboutSection />
+      <ServicesSection />
+      <DifferentialsSection />
+      <RecruitmentSection />
+      <GallerySection />
       <PartnersSection />
-      <TestimonialsSection />
       <CTASection />
       <FAQSection />
     </main>
