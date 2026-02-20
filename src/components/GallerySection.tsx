@@ -2,13 +2,11 @@ import { motion } from "framer-motion";
 import actionTraining1 from "@/assets/action-training-1.jpg";
 import actionTraining2 from "@/assets/action-training-2.jpg";
 import actionTraining3 from "@/assets/action-training-3.jpg";
-import actionSetembroAmarelo from "@/assets/action-setembro-amarelo.jpg";
 
 const photos = [
   { src: actionTraining1, alt: "Treinamento corporativo Loop RH" },
   { src: actionTraining2, alt: "Dinâmica de grupo" },
   { src: actionTraining3, alt: "Capacitação de líderes" },
-  { src: actionSetembroAmarelo, alt: "Campanha Setembro Amarelo" },
 ];
 
 const GallerySection = () => {
@@ -30,7 +28,7 @@ const GallerySection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {photos.map((photo, i) => (
             <motion.div
               key={i}
@@ -38,16 +36,12 @@ const GallerySection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`rounded-2xl overflow-hidden border border-electric/10 ${
-                i === 0 ? "md:col-span-2 md:row-span-2" : ""
-              }`}
+              className="rounded-2xl overflow-hidden border border-electric/10"
             >
               <img
                 src={photo.src}
                 alt={photo.alt}
-                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${
-                  i === 0 ? "h-full min-h-[300px]" : "h-48 md:h-56"
-                }`}
+                className="w-full h-64 md:h-72 object-cover object-center hover:scale-105 transition-transform duration-500"
               />
             </motion.div>
           ))}
