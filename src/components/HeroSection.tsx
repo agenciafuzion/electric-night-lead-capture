@@ -91,11 +91,11 @@ const HeroSection = () => {
             className="hidden lg:flex justify-center"
           >
             <div className="relative">
-              <div className="absolute -inset-6 bg-electric/15 rounded-3xl blur-3xl" />
+              <div className="absolute -inset-8 bg-electric/10 rounded-full blur-3xl" />
               <img
                 src={heroTeam}
                 alt="Alessandra Reis e Gerliane Vieira - Diretoria Loop RH"
-                className="relative w-[340px] xl:w-[400px] rounded-2xl object-cover"
+                className="relative w-[320px] xl:w-[380px] rounded-2xl object-cover drop-shadow-2xl"
               />
             </div>
           </motion.div>
