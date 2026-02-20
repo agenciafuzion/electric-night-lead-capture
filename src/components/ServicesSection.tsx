@@ -15,6 +15,7 @@ const services = [
       "Preparação de Sucessores",
     ],
     image: servicesOrg,
+    imagePosition: "center",
   },
   {
     icon: Brain,
@@ -26,6 +27,7 @@ const services = [
       "Psicologia Organizacional e Acolhimento",
     ],
     image: actionTraining,
+    imagePosition: "top",
   },
   {
     icon: Rocket,
@@ -37,6 +39,7 @@ const services = [
       "Formação de Novos Líderes",
     ],
     image: servicesTraining,
+    imagePosition: "center 30%",
   },
   {
     icon: Ribbon,
@@ -47,6 +50,7 @@ const services = [
       "Janeiro Branco — Saúde Emocional",
     ],
     image: servicesCampaigns,
+    imagePosition: "center",
   },
 ];
 
@@ -89,7 +93,8 @@ const ServicesSection = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  style={{ objectPosition: service.imagePosition }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
                 <div className="absolute bottom-4 left-6 flex items-center gap-3">
