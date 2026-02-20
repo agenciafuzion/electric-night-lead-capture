@@ -70,36 +70,62 @@ const RecruitmentSection = () => {
           </motion.div>
         </div>
 
-        {/* Steps */}
+        {/* Steps — Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h3 className="font-headline text-2xl md:text-3xl font-bold text-deep">
             Nossas Etapas
           </h3>
+          <p className="font-body text-depth mt-3 max-w-lg mx-auto">
+            Um processo estruturado para garantir a contratação certa.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="text-center p-4 rounded-xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all bg-background"
-            >
-              <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mx-auto mb-3">
-                <step.icon className="w-6 h-6 text-electric" />
-              </div>
-              <h4 className="font-headline text-sm font-bold text-deep mb-1">{step.title}</h4>
-              <p className="font-body text-xs text-depth leading-relaxed">{step.desc}</p>
-            </motion.div>
-          ))}
+        <div className="relative max-w-3xl mx-auto">
+          {/* Vertical line */}
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
+
+          {steps.map((step, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className={`relative flex items-start mb-12 last:mb-0 md:justify-${isLeft ? "start" : "end"}`}
+              >
+                {/* Dot on the line */}
+                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-electric border-4 border-background z-10 mt-4" />
+
+                {/* Card */}
+                <div
+                  className={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${
+                    isLeft ? "md:mr-auto md:pr-0" : "md:ml-auto md:pl-0"
+                  }`}
+                >
+                  <div className="bg-background rounded-2xl p-5 border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all group">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center shrink-0 group-hover:bg-electric/20 transition-colors">
+                        <step.icon className="w-5 h-5 text-electric" />
+                      </div>
+                      <span className="font-headline text-xs font-bold text-electric/60 uppercase tracking-wider">
+                        Etapa {i + 1}
+                      </span>
+                    </div>
+                    <h4 className="font-headline text-base font-bold text-deep mb-1">{step.title}</h4>
+                    <p className="font-body text-sm text-depth leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
