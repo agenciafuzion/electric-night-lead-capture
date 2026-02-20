@@ -4,21 +4,29 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     q: "Vocês atendem presencial ou online?",
-    a: "Os dois. Fazemos presencialmente e também online para o Brasil inteiro.",
+    a: "Os dois! Fazemos presencialmente em Ipatinga-MG e região, e também online para o Brasil inteiro.",
   },
   {
-    q: "Isso é mais consultoria ou mais treinamento?",
-    a: "Depende do seu momento. A consultoria organiza o jogo. O treinamento faz o time jogar melhor. Na prática, um sustenta o outro.",
+    q: "A Loop atende empresas de qualquer porte?",
+    a: "Sim. Atendemos desde pequenas empresas até grandes grupos, sempre com soluções sob medida de acordo com as necessidades e demandas específicas de cada cliente.",
   },
   {
-    q: "Em quanto tempo eu começo a ver mudança?",
-    a: "Geralmente você sente alívio rápido quando cria rotina e processo. O resultado forte vem com execução e disciplina ao longo das semanas.",
+    q: "Como funciona o recrutamento estratégico?",
+    a: "Realizamos o diagnóstico completo da vaga, triagem, dinâmicas, testes psicológicos (DISC) e entrevistas individuais. Enviamos de 2 a 4 candidatos com relatórios analíticos para a entrevista final com o gestor.",
+  },
+  {
+    q: "Quanto tempo leva o processo de recrutamento?",
+    a: "O prazo médio é de 15 a 20 dias úteis após a assinatura do contrato, podendo ser negociado conforme a complexidade ou escassez de mão de obra.",
+  },
+  {
+    q: "A Loop oferece garantia no recrutamento?",
+    a: "Sim. Caso o candidato não atenda às expectativas em 30 dias, realizamos um novo processo sem custos adicionais, desde que identificadas falhas no processo da Loop.",
   },
 ];
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="bg-deep py-24 px-6 md:px-16">
+    <section id="faq" className="bg-neutral-light py-24 px-6 md:px-16">
       <div className="container mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +38,7 @@ const FAQSection = () => {
           <span className="inline-block bg-electric/10 text-electric font-body text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
             FAQ
           </span>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary-foreground">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-deep">
             Perguntas Frequentes
           </h2>
         </motion.div>
@@ -40,12 +48,12 @@ const FAQSection = () => {
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="glass rounded-xl px-6 border-none"
+              className="rounded-xl px-6 border border-border bg-background"
             >
-              <AccordionTrigger className="font-body font-semibold text-primary-foreground text-left hover:no-underline py-5">
+              <AccordionTrigger className="font-body font-semibold text-deep text-left hover:no-underline py-5">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="font-body text-neutral-mid pb-5">
+              <AccordionContent className="font-body text-depth pb-5">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>

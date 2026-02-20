@@ -5,9 +5,10 @@ import logoLoop from "@/assets/logo-loop.png";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Problema", href: "#problema" },
-  { label: "Solução", href: "#solucao" },
-  { label: "Benefícios", href: "#beneficios" },
+  { label: "Quem Somos", href: "#quem-somos" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Diferenciais", href: "#diferenciais" },
+  { label: "Recrutamento", href: "#recrutamento" },
   { label: "Clientes", href: "#clientes" },
   { label: "FAQ", href: "#faq" },
   { label: "Portfólio", href: "/portfolio", isRoute: true },
@@ -28,6 +29,7 @@ const Header = () => {
       const el = document.querySelector(href);
       el?.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileOpen(false);
   };
 
   useEffect(() => {
@@ -46,11 +48,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 md:px-16 flex items-center justify-between h-16 md:h-20">
         <Link to="/">
-          <img src={logoLoop} alt="Loop Consultoria" className="h-8 md:h-10" />
+          <img src={logoLoop} alt="Loop RH" className="h-8 md:h-10" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {links.map((link) =>
             (link as any).isRoute ? (
               <Link
@@ -73,15 +75,16 @@ const Header = () => {
           )}
           <a
             href="#diagnostico"
+            onClick={(e) => handleAnchorClick(e, "#diagnostico")}
             className="inline-flex items-center px-5 py-2.5 rounded-lg bg-electric text-primary-foreground font-body text-sm font-semibold hover:opacity-90 transition-opacity"
           >
-            Agendar Diagnóstico
+            Falar com Especialista
           </a>
         </nav>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-primary-foreground"
+          className="lg:hidden text-primary-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -95,7 +98,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-deep/98 backdrop-blur-md border-b border-depth overflow-hidden"
+            className="lg:hidden bg-deep/98 backdrop-blur-md border-b border-depth overflow-hidden"
           >
             <nav className="flex flex-col gap-1 px-6 py-4">
               {links.map((link) =>
@@ -112,7 +115,7 @@ const Header = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={(e) => { handleAnchorClick(e, link.href); setMobileOpen(false); }}
+                    onClick={(e) => handleAnchorClick(e, link.href)}
                     className="font-body text-sm font-medium text-neutral-mid hover:text-primary-foreground py-3 border-b border-depth/50 transition-colors"
                   >
                     {link.label}
@@ -121,10 +124,10 @@ const Header = () => {
               )}
               <a
                 href="#diagnostico"
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => handleAnchorClick(e, "#diagnostico")}
                 className="mt-3 inline-flex items-center justify-center px-5 py-3 rounded-lg bg-electric text-primary-foreground font-body text-sm font-semibold"
               >
-                Agendar Diagnóstico
+                Falar com Especialista
               </a>
             </nav>
           </motion.div>
