@@ -83,7 +83,35 @@ const RecruitmentSection = () => {
           </h3>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        {/* Desktop: horizontal timeline */}
+        <div className="hidden lg:block">
+          {/* Connecting line */}
+          <div className="relative mx-auto max-w-5xl">
+            <div className="absolute top-8 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-electric/10 via-electric/40 to-electric/10 rounded-full" />
+            <div className="grid grid-cols-7 gap-6 relative">
+              {steps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-background border-2 border-electric/30 flex items-center justify-center mb-4 shadow-md shadow-electric/10 relative z-10">
+                    <step.icon className="w-7 h-7 text-electric" />
+                  </div>
+                  <span className="text-[10px] font-body font-bold text-electric mb-1 uppercase tracking-wider">Etapa {i + 1}</span>
+                  <h4 className="font-headline text-sm font-bold text-deep mb-1.5">{step.title}</h4>
+                  <p className="font-body text-xs text-depth leading-relaxed">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile/Tablet: 2-column grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:hidden">
           {steps.map((step, i) => (
             <motion.div
               key={i}
@@ -91,11 +119,12 @@ const RecruitmentSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="text-center p-4 rounded-xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all bg-background"
+              className="text-center p-5 rounded-xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all bg-background"
             >
-              <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-full bg-electric/10 flex items-center justify-center mx-auto mb-3">
                 <step.icon className="w-6 h-6 text-electric" />
               </div>
+              <span className="text-[10px] font-body font-bold text-electric mb-1 uppercase tracking-wider">Etapa {i + 1}</span>
               <h4 className="font-headline text-sm font-bold text-deep mb-1">{step.title}</h4>
               <p className="font-body text-xs text-depth leading-relaxed">{step.desc}</p>
             </motion.div>
