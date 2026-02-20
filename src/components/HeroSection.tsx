@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import heroTeam from "@/assets/hero-loop-team.png";
 import { ArrowRight, Users, Award, TrendingUp } from "lucide-react";
+import { FloatingPaths } from "@/components/ui/background-paths";
 
 const stats = [
   { icon: Users, value: "5.000+", label: "Pessoas impactadas" },
@@ -15,29 +16,31 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-deep via-depth to-deep" />
       <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-deep/40" />
 
-      {/* Glow orb */}
-      <div className="glow-orb absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] animate-glow-pulse pointer-events-none" />
+      {/* Animated background paths */}
+      <FloatingPaths position={1} />
+      <FloatingPaths position={-1} />
 
-      <div className="container relative z-10 mx-auto px-6 md:px-16 pt-28 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 mx-auto px-6 md:px-12 lg:px-16 pt-28 pb-16">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-center">
           {/* Left - Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="max-w-2xl"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-4 py-1.5 mb-8">
               <span className="h-2 w-2 rounded-full bg-electric animate-glow-pulse" />
               <span className="text-sm font-body text-electric tracking-wide">Consultoria em Gente e Gestão</span>
             </div>
 
-            <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-primary-foreground mb-6">
+            <h1 className="font-headline text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold leading-[1.1] text-primary-foreground mb-6">
               Transforme Pessoas,{" "}
               <span className="text-electric">Impulsione Negócios</span>{" "}
               com a Loop!
             </h1>
 
-            <p className="font-body text-neutral-mid text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+            <p className="font-body text-neutral-mid text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
               Soluções empresariais completas e personalizadas para fortalecer a sua organização, construir equipes de alta performance e gerar resultados consistentes.
             </p>
 
@@ -88,11 +91,11 @@ const HeroSection = () => {
             className="hidden lg:flex justify-center"
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-electric/20 rounded-3xl blur-2xl" />
+              <div className="absolute -inset-6 bg-electric/15 rounded-3xl blur-3xl" />
               <img
                 src={heroTeam}
                 alt="Alessandra Reis e Gerliane Vieira - Diretoria Loop RH"
-                className="relative w-full max-w-md rounded-2xl object-cover"
+                className="relative w-[340px] xl:w-[400px] rounded-2xl object-cover"
               />
             </div>
           </motion.div>
