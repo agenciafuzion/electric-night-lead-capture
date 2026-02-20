@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Search, UserCheck, Megaphone, FileText, Users2, ClipboardCheck, Send, CheckCircle } from "lucide-react";
-import recruitmentImg from "@/assets/recruitment-section.jpg";
+// TODO: Substituir pelo caminho da foto real do drive
+// import recruitmentImg from "@/assets/recruitment-real.jpg";
+const recruitmentImg = "/placeholder.svg";
 
 const steps = [
   { icon: Search, title: "Diagnóstico", desc: "Análise estratégica da empresa e do segmento." },

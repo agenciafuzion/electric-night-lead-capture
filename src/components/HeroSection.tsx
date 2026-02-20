@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-corporate.jpg";
+import heroTeam from "@/assets/hero-loop-team.png";
 import { ArrowRight, Users, Award, TrendingUp } from "lucide-react";
 
 const stats = [
@@ -11,22 +11,16 @@ const stats = [
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-deep overflow-hidden flex items-center">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Equipe Loop RH em reunião estratégica"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep/90 to-deep/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-deep/40" />
-      </div>
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep via-depth to-deep" />
+      <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-deep/40" />
 
       {/* Glow orb */}
       <div className="glow-orb absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] animate-glow-pulse pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-16 pt-28 pb-16">
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left - Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,27 +56,44 @@ const HeroSection = () => {
                 Conheça Nossos Serviços
               </a>
             </div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="glow-line w-full mt-14 mb-8" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center flex-shrink-0">
+                      <stat.icon className="w-5 h-5 text-electric" />
+                    </div>
+                    <div>
+                      <p className="font-headline text-xl md:text-2xl font-bold text-electric">{stat.value}</p>
+                      <p className="font-body text-xs md:text-sm text-neutral-mid">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Stats */}
+          {/* Right - Team Photo */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden lg:flex justify-center"
           >
-            <div className="glow-line w-full mt-14 mb-8" />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center flex-shrink-0">
-                    <stat.icon className="w-5 h-5 text-electric" />
-                  </div>
-                  <div>
-                    <p className="font-headline text-xl md:text-2xl font-bold text-electric">{stat.value}</p>
-                    <p className="font-body text-xs md:text-sm text-neutral-mid">{stat.label}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-electric/20 rounded-3xl blur-2xl" />
+              <img
+                src={heroTeam}
+                alt="Alessandra Reis e Gerliane Vieira - Diretoria Loop RH"
+                className="relative w-full max-w-md rounded-2xl object-cover"
+              />
             </div>
           </motion.div>
         </div>

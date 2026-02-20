@@ -85,11 +85,11 @@ const ServicesSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass rounded-2xl overflow-hidden group hover:border-electric/30 transition-colors"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
                 <div className="absolute bottom-4 left-6 flex items-center gap-3">

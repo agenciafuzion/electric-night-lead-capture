@@ -23,14 +23,14 @@ const highlights = [
 
 const team = [
   {
-    name: "Alessandra Reis",
-    role: "Psicóloga Organizacional e Especialista em Gente e Gestão",
-    photo: teamAlessandra,
-  },
-  {
     name: "Gerliane Vieira",
     role: "Analista Comportamental e Especialista em RH",
     photo: teamGerliane,
+  },
+  {
+    name: "Alessandra Reis",
+    role: "Psicóloga Organizacional e Especialista em Gente e Gestão",
+    photo: teamAlessandra,
   },
 ];
 
@@ -86,7 +86,7 @@ const AboutSection = () => {
           className="text-center mb-12"
         >
           <h3 className="font-headline text-2xl md:text-3xl font-bold text-deep mb-4">
-            Nossa Equipe
+            Nossa Diretoria
           </h3>
           <p className="font-body text-depth text-lg">
             Especialistas dedicadas a transformar sua organização.
@@ -103,11 +103,11 @@ const AboutSection = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="text-center"
             >
-              <div className="w-40 h-40 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-electric/20">
+              <div className="w-40 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-electric/20">
                 <img
                   src={person.photo}
                   alt={person.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <h4 className="font-headline text-lg font-bold text-deep">{person.name}</h4>
