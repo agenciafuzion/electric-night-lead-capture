@@ -3,14 +3,12 @@ import actionTraining1 from "@/assets/action-training-1.jpg";
 import actionTraining2 from "@/assets/action-training-2.jpg";
 import actionTraining3 from "@/assets/action-training-3.jpg";
 import actionSetembroAmarelo from "@/assets/action-setembro-amarelo.jpg";
-import actionTraining5 from "@/assets/action-training-5.jpg";
 
 const photos = [
   { src: actionTraining1, alt: "Treinamento corporativo Loop RH" },
   { src: actionTraining2, alt: "Dinâmica de grupo" },
   { src: actionTraining3, alt: "Capacitação de líderes" },
   { src: actionSetembroAmarelo, alt: "Campanha Setembro Amarelo" },
-  { src: actionTraining5, alt: "Workshop empresarial" },
 ];
 
 const GallerySection = () => {
