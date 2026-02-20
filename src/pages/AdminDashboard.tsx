@@ -65,8 +65,12 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Tem certeza que deseja excluir esta vaga?")) return;
-    await deleteJob.mutateAsync(id);
-    toast.success("Vaga excluída com sucesso");
+    try {
+      await deleteJob.mutateAsync(id);
+      toast.success("Vaga excluída com sucesso", { style: { background: "#166534", color: "#fff" } });
+    } catch (err) {
+      console.error("Delete error:", err);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -85,16 +89,20 @@ const AdminDashboard = () => {
       application_url: form.application_url || null,
     };
 
-    if (editingId) {
-      await updateJob.mutateAsync({ id: editingId, ...payload });
-      toast.success("Vaga atualizada com sucesso");
-    } else {
-      await createJob.mutateAsync(payload);
-      toast.success("Vaga criada com sucesso");
+    try {
+      if (editingId) {
+        await updateJob.mutateAsync({ id: editingId, ...payload });
+        toast.success("Vaga atualizada com sucesso", { style: { background: "#166534", color: "#fff" } });
+      } else {
+        await createJob.mutateAsync(payload);
+        toast.success("Vaga criada com sucesso", { style: { background: "#166534", color: "#fff" } });
+      }
+      setShowForm(false);
+      setEditingId(null);
+      setForm(emptyForm);
+    } catch (err) {
+      console.error("Job mutation error:", err);
     }
-    setShowForm(false);
-    setEditingId(null);
-    setForm(emptyForm);
   };
 
   const handleLogout = async () => {

@@ -16,12 +16,18 @@ const AdminLogin = () => {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const { error } = await signIn(email, password);
-    setLoading(false);
-    if (error) {
-      setError("Credenciais inválidas. Tente novamente.");
-    } else {
-      navigate("/admin/dashboard");
+    const loginEmail = email.includes("@") ? email : `${email}@loop.sistema`;
+    try {
+      const { error } = await signIn(loginEmail, password);
+      if (error) {
+        setError("Credenciais inválidas. Tente novamente.");
+      } else {
+        navigate("/admin/dashboard");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,8 +44,8 @@ const AdminLogin = () => {
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-mid" />
             <input
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="Nome de usuário"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
