@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 import { Search, UserCheck, Megaphone, FileText, Users2, ClipboardCheck, Send, CheckCircle } from "lucide-react";
-import { Timeline } from "@/components/ui/timeline";
 import recruitmentImg from "@/assets/recruitment-section.jpg";
 
 const steps = [
-  { icon: Search, title: "Diagnóstico", desc: "Análise estratégica da empresa e do segmento para entender o cenário e as necessidades reais da vaga." },
-  { icon: FileText, title: "Candidato Ideal", desc: "Definição dos requisitos técnicos, comportamentais e culturais do perfil desejado." },
-  { icon: Megaphone, title: "Divulgação Estratégica", desc: "Alcance do perfil ideal em todos os canais — portais, redes sociais e hunting ativo." },
-  { icon: ClipboardCheck, title: "Triagem", desc: "Avaliação criteriosa dos candidatos com filtros técnicos e comportamentais." },
-  { icon: Users2, title: "Dinâmica e Testes", desc: "Aplicação de testes psicológicos (DISC), dinâmicas de grupo e avaliações situacionais." },
-  { icon: UserCheck, title: "Entrevista Individual", desc: "Técnicas aprofundadas de avaliação com entrevistas por competências." },
-  { icon: Send, title: "Envio dos Candidatos", desc: "Apresentação de 2 a 4 candidatos finalistas com relatórios analíticos completos." },
+  { icon: Search, title: "Diagnóstico", desc: "Análise estratégica da empresa e do segmento." },
+  { icon: FileText, title: "Candidato Ideal", desc: "Definição dos requisitos e perfil desejado." },
+  { icon: Megaphone, title: "Divulgação Estratégica", desc: "Alcance do perfil ideal em todos os canais." },
+  { icon: ClipboardCheck, title: "Triagem", desc: "Avaliação criteriosa dos candidatos." },
+  { icon: Users2, title: "Dinâmica e Testes", desc: "Testes psicológicos (DISC) e dinâmicas." },
+  { icon: UserCheck, title: "Entrevista Individual", desc: "Técnicas aprofundadas de avaliação." },
+  { icon: Send, title: "Envio dos Candidatos", desc: "2 a 4 candidatos com relatórios analíticos." },
 ];
 
 const benefits = [
@@ -20,21 +19,6 @@ const benefits = [
   "Etapas customizadas respeitando a cultura da empresa",
   "Apoio ao candidato na adaptabilidade e integração",
 ];
-
-const timelineData = steps.map((step, i) => ({
-  title: `Etapa ${i + 1}`,
-  content: (
-    <div className="bg-background rounded-2xl p-6 border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all group">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center shrink-0 group-hover:bg-electric/20 transition-colors">
-          <step.icon className="w-6 h-6 text-electric" />
-        </div>
-        <h4 className="font-headline text-lg font-bold text-deep">{step.title}</h4>
-      </div>
-      <p className="font-body text-sm text-depth leading-relaxed">{step.desc}</p>
-    </div>
-  ),
-}));
 
 const RecruitmentSection = () => {
   return (
@@ -86,23 +70,37 @@ const RecruitmentSection = () => {
           </motion.div>
         </div>
 
-        {/* Steps — Scroll-animated Timeline */}
+        {/* Steps */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-4"
+          className="text-center mb-12"
         >
           <h3 className="font-headline text-2xl md:text-3xl font-bold text-deep">
             Nossas Etapas
           </h3>
-          <p className="font-body text-depth mt-3 max-w-lg mx-auto">
-            Um processo estruturado para garantir a contratação certa.
-          </p>
         </motion.div>
 
-        <Timeline data={timelineData} />
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {steps.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="text-center p-4 rounded-xl border border-border hover:border-electric/30 hover:shadow-lg hover:shadow-electric/10 transition-all bg-background"
+            >
+              <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mx-auto mb-3">
+                <step.icon className="w-6 h-6 text-electric" />
+              </div>
+              <h4 className="font-headline text-sm font-bold text-deep mb-1">{step.title}</h4>
+              <p className="font-body text-xs text-depth leading-relaxed">{step.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
