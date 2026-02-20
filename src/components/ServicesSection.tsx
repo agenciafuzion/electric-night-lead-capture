@@ -39,7 +39,7 @@ const services = [
       "Formação de Novos Líderes",
     ],
     image: servicesTraining,
-    imagePosition: "center 30%",
+    imagePosition: "center 20%",
   },
   {
     icon: Ribbon,
